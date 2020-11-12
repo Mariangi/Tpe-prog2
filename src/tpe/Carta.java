@@ -32,7 +32,7 @@ public class Carta{
 	}
 	
 	public Caracteristica getCaracteristicaX(int indice){
-		System.out.println(indice);
+		//System.out.println(indice);
 		return this.caracteristicas.get(indice);
 	}
 	

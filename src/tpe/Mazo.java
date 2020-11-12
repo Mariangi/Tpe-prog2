@@ -61,8 +61,16 @@ public class Mazo {
 	
 	public void imprimirMazo(){
 		for (int i = 0; i < this.getTamanioDelMazo(); i++){
-			/*System.out.print(this.cartas.get(i)+ " ");
-			System.out.println(this.cartas.get(i).getNombre());*/
+			//System.out.print(this.cartas.get(i)+ " ");
+			System.out.println("--------------------------------------------------------");
+			System.out.println("   ");
+			System.out.println(this.cartas.get(i).getNombre());
+			System.out.println("   ");
+			System.out.println(this.cartas.get(i).getCantidadDeCaracteristicas());
+			System.out.println("   ");
+			for(int index = 0; index < this.cartas.get(i).getCaracteristicas().size(); index ++){
+				System.out.println(this.cartas.get(i).getCaracteristicas().get(index).getNombre() + " : " + this.cartas.get(i).getCaracteristicas().get(index).getValor());
+			}
 		}
 	}
 }

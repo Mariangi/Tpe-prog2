@@ -37,10 +37,11 @@ public class Juego {
 		Jugador ganadorDeLaUltimaRonda = this.jugador1;
 		Jugador perdedorDeLaUltimaRonda = this.jugador2;
 		ArrayList<String> resultadoPartida = new ArrayList<>();
+		this.mazo.filtrar();
 		this.mazo.mezclar();
 		this.repartirCartas();
 		while( (i < maxRondas) && (this.jugador1.tieneCartas()) && (this.jugador2.tieneCartas()) ){
-			//System.out.println("-------------- Ronda " + i + " ----------");
+			resultadoPartida.add("-------------- Ronda " + i + " ----------");
 			Carta cartaGanador = ganadorDeLaUltimaRonda.getCarta();
 			Carta cartaPerdedor = perdedorDeLaUltimaRonda.getCarta();
 			String caracteristicaRandom = ganadorDeLaUltimaRonda.getCaracteristicaRandom();
@@ -49,14 +50,14 @@ public class Juego {
 			System.out.println("La carta de " + ganadorDeLaUltimaRonda.getNombre() + " es " + cartaGanador.getNombre() + " con " + caracteristicaRandom+ " " + cartaGanador.indexOfValorAtributo(caracteristicaRandom));
 			System.out.println("La carta de " + perdedorDeLaUltimaRonda.getNombre() + " es " + cartaPerdedor.getNombre() + " con " + caracteristicaRandom+ " " + cartaPerdedor.indexOfValorAtributo(caracteristicaRandom));*/
 			if(cartaGanador.gana(cartaPerdedor, caracteristicaRandom) > 0){//gana p1
-				System.out.println("if");
+				//System.out.println("if");
 				ganadorDeLaUltimaRonda.recibirCarta(cartaPerdedor);
 				ganadorDeLaUltimaRonda.recibirCarta(cartaGanador);
 				resultadoPartida.add("Gana la ronda "+ ganadorDeLaUltimaRonda.getNombre() + " " + ganadorDeLaUltimaRonda.getNombre() + " posse ahora " + ganadorDeLaUltimaRonda.cantidadDeCartas()+ " y " + perdedorDeLaUltimaRonda.getNombre() + " posee ahora " + perdedorDeLaUltimaRonda.cantidadDeCartas()) ;
 				i++;
 				
 			}else if (cartaGanador.gana(cartaPerdedor, caracteristicaRandom) < 0){//gana p2
-				System.out.println("else if");
+				//System.out.println("else if");
 				perdedorDeLaUltimaRonda.recibirCarta(cartaGanador);
 				perdedorDeLaUltimaRonda.recibirCarta(cartaPerdedor);
 				Jugador aux;
@@ -67,6 +68,7 @@ public class Juego {
 				i++;
 				
 			}else{//en caso de un empate
+				//System.out.println("else");
 				ganadorDeLaUltimaRonda.recibirCarta(cartaGanador);
 				perdedorDeLaUltimaRonda.recibirCarta(cartaPerdedor);
 				
