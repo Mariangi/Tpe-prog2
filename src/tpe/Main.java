@@ -68,14 +68,14 @@ public class Main {
 			//String mazoPath = "autos.json";
 			String mazoPath = "superheroes.json";
 	        Main.CargarMazo(mazoPath);
-	        Jugador Nico = new Jugador("Nico");
-	        Jugador Angi = new Jugador("Angi");
+	        //Jugador Nico = new Jugador("Nico");
+	        //Jugador Angi = new Jugador("Angi");
 	        Mazo mazoDeJuego = new Mazo(Main.CargarMazo(mazoPath));
 	        //mazoDeJuego.filtrar();
 	        //mazoDeJuego.imprimirMazo();
-	        Juego juego1 = new Juego(Nico, Angi, mazoDeJuego, 10);
+	        //Juego juego1 = new Juego(Nico, Angi, mazoDeJuego, 10);
 	        ArrayList<String> ResultadoDelJuego = new ArrayList<>();
-	        ResultadoDelJuego = juego1.play();
+	        //ResultadoDelJuego = juego1.play();
 	        
 	        for(int index = 0; index < ResultadoDelJuego.size(); index++){
 	        	System.out.println("     ");

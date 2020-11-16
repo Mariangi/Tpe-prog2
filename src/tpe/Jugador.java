@@ -5,12 +5,22 @@ import java.util.ArrayList;
 public class Jugador {
 	private String nombre;
 	private Mazo mazo;
+	private Estrategia estrategia;
 
-	public Jugador(String nombre){
+	public Jugador(String nombre, Estrategia estrategia){
 		this.nombre = nombre;
 		this.mazo = new Mazo();
+		this.estrategia = estrategia;
 	}
 	
+	public Estrategia getEstrategia(){
+		return estrategia;
+	}
+
+	public void setEstrategia(Estrategia estrategia){
+		this.estrategia = estrategia;
+	}
+
 	public void setNombreJugador(String nombre){
 		this.nombre = nombre;
 	}
@@ -37,10 +47,14 @@ public class Jugador {
 		return this.mazo.getTamanioDelMazo();
 	}
 	
-	public String getCaracteristicaRandom(){
+	/*public String getCaracteristicaRandom(){
 		ArrayList<Caracteristica> AuxCaracteristicas = new ArrayList<>();
 		AuxCaracteristicas.addAll(this.mazo.getCartaX(0).getCaracteristicas());
 		int numeroRandom = (int)(Math.random()*AuxCaracteristicas.size());
 		return this.mazo.getCartaX(0).getCaracteristicaX(numeroRandom).getNombre();
+	}*/
+	
+	public String getCaracteristica(){
+		return this.estrategia.aplicarEstrategia(this.mazo.getCartaModelo());
 	}
 }

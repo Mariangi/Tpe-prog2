@@ -7,6 +7,7 @@ public class Juego {
 	private Jugador jugador2;
 	private Mazo mazo;
 	private int maxRondas;
+	private ArrayList<Pocion> pociones;
 	
 	
 	public Juego(Jugador jugador1, Jugador jugador2, Mazo mazo, int maxRondas ){
@@ -14,19 +15,38 @@ public class Juego {
 		this.jugador2 = jugador2;
 		this.mazo = mazo;
 		this.maxRondas = maxRondas;
+		this.pociones = new ArrayList<>();
 	}
 	
+	public void setPociones(ArrayList<Pocion> pociones){
+		this.pociones.addAll(pociones);
+	}
+
 	public int getMaxRondas(){
 		return this.maxRondas;
 	}
 	
+	private Pocion getPocion(){
+		Pocion aux = this.pociones.get(0);
+		this.pociones.remove(0);
+		return aux;
+	}
+	
+	
 	public void repartirCartas(){
 		int tamanioDelMazoOriginal = this.mazo.getTamanioDelMazo();
 		for (int i= 0; i < tamanioDelMazoOriginal; i++){
-			if( ( i % 2 ) == 0 ){// % es modulo - modulo de 2 es igual a 0
-				this.jugador1.recibirCarta(mazo.getCarta());
+			Carta aux = this.mazo.getCarta();
+			if( ( i % 2 ) == 0 ){// % es modulo - modulo de 2 es igual a 0				
+				if(this.pociones.size() > 0){
+					aux.setPocion(this.getPocion());
+				}
+				this.jugador1.recibirCarta(aux);
 			}else{
-				this.jugador2.recibirCarta(mazo.getCarta());
+				if(this.pociones.size() > 0){
+					aux.setPocion(this.getPocion());
+				}
+				this.jugador2.recibirCarta(aux);
 			}
 		}
 	}
@@ -44,7 +64,7 @@ public class Juego {
 			resultadoPartida.add("-------------- Ronda " + i + " ----------");
 			Carta cartaGanador = ganadorDeLaUltimaRonda.getCarta();
 			Carta cartaPerdedor = perdedorDeLaUltimaRonda.getCarta();
-			String caracteristicaRandom = ganadorDeLaUltimaRonda.getCaracteristicaRandom();
+			String caracteristicaRandom = ganadorDeLaUltimaRonda.getCaracteristica();
 			resultadoPartida.add("El jugador " + ganadorDeLaUltimaRonda.getNombre() + " selecciona competir por el atributo: " + caracteristicaRandom + " " + "La carta de " + ganadorDeLaUltimaRonda.getNombre() + " es " + cartaGanador.getNombre() + " con " + caracteristicaRandom+ " " + cartaGanador.indexOfValorAtributo(caracteristicaRandom) + " " + "La carta de " + perdedorDeLaUltimaRonda.getNombre() + " es " + cartaPerdedor.getNombre() + " con " + caracteristicaRandom+ " " + cartaPerdedor.indexOfValorAtributo(caracteristicaRandom));
 			/*System.out.println("El jugador " + ganadorDeLaUltimaRonda.getNombre() + " selecciona competir por el atributo: " + caracteristicaRandom);
 			System.out.println("La carta de " + ganadorDeLaUltimaRonda.getNombre() + " es " + cartaGanador.getNombre() + " con " + caracteristicaRandom+ " " + cartaGanador.indexOfValorAtributo(caracteristicaRandom));

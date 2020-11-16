@@ -17,6 +17,10 @@ public class Caracteristica implements Comparable<Caracteristica>{
 		return this.valor;
 	}
 	
+	public void setValor(int valor) {
+		this.valor = valor;
+	}
+	
 	@Override
 	public boolean equals(Object obj){
 		try{
@@ -29,8 +33,8 @@ public class Caracteristica implements Comparable<Caracteristica>{
 	
 	@Override
 	public int compareTo(Caracteristica caracteristica){
-		int thisValor = (int)this.getValor();//hacemos cast de un objeto Integer que sabemos que siempre llega Integer
-		int caracteristicaExterior = (int)caracteristica.getValor();//Como sabemos que llega Integer podemos hacer casting a int sin que falle
+		int thisValor = this.getValor();//hacemos cast de un objeto Integer que sabemos que siempre llega Integer
+		int caracteristicaExterior = caracteristica.getValor();//Como sabemos que llega Integer podemos hacer casting a int sin que falle
 		/*if(thisValor > caracteristicaExterior){
 			return 1;
 		}else if(thisValor < caracteristicaExterior){
@@ -40,6 +44,8 @@ public class Caracteristica implements Comparable<Caracteristica>{
 		}*/
 		return thisValor - caracteristicaExterior;
 	}
+
+
 }
 
 

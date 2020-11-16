@@ -5,7 +5,16 @@ import java.util.ArrayList;
 public class Carta{
 	private String nombre;
 	private ArrayList<Caracteristica> caracteristicas;
+	private Pocion pocion;
 	
+	public Pocion getPocion() {
+		return pocion;
+	}
+
+	public void setPocion(Pocion pocion) {
+		this.pocion = pocion;
+	}
+
 	public Carta(String nombre){
 		this.nombre = nombre;
 		this.caracteristicas = new ArrayList<>();
@@ -36,7 +45,8 @@ public class Carta{
 		return this.caracteristicas.get(indice);
 	}
 	
-	public int getCantidadDeCaracteristicas(){		return this.caracteristicas.size();
+	public int getCantidadDeCaracteristicas(){	
+		return this.caracteristicas.size();
 	}
 	
 	public int compareTo(Carta carta, int indice){
