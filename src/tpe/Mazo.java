@@ -64,7 +64,7 @@ public class Mazo {
 		
 	}
 	
-	public void imprimirMazo(){
+	/*public void imprimirMazo(){
 		for (int i = 0; i < this.getTamanioDelMazo(); i++){
 			//System.out.print(this.cartas.get(i)+ " ");
 			System.out.println("--------------------------------------------------------");
@@ -77,5 +77,5 @@ public class Mazo {
 				System.out.println(this.cartas.get(i).getCaracteristicas().get(index).getNombre() + " : " + this.cartas.get(i).getCaracteristicas().get(index).getValor());
 			}
 		}
-	}
+	}*/
 }

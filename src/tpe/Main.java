@@ -89,6 +89,16 @@ public class Main {
 	        pociones.add(queiroValer);
 	        Cocktail cocktail = new Cocktail();
 	        pociones.add(cocktail);
+	        FortalecedorX fortalecedora2 = new FortalecedorX(30);
+	        pociones.add(fortalecedora2);
+	        IncrementadorAtributo incrementadora2 = new IncrementadorAtributo(20, "fuerza");
+	        pociones.add(incrementadora2);
+	        /*ReductorX reductor = new ReductorX(10);
+	        pociones.add(reductor);
+	        QuieroValeX queiroValer = new QuieroValeX(50);
+	        pociones.add(queiroValer);
+	        Cocktail cocktail = new Cocktail();
+	        pociones.add(cocktail);*/
 	        juego1.setPociones(pociones);
 	        ResultadoDelJuego = juego1.play();
 	        

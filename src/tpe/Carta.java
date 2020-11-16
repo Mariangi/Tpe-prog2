@@ -49,10 +49,6 @@ public class Carta{
 		return this.caracteristicas.size();
 	}
 	
-	public int compareTo(Carta carta, int indice){
-		//return this.caracteristicas.get(indice).compareTo(carta.getCaracteristicas().get(indice));
-		return this.getCaracteristicaX(indice).compareTo(carta.getCaracteristicaX(indice));
-	}
 	
 	public boolean mismoTipoQue(Carta carta){
 		if(this.getCantidadDeCaracteristicas() == carta.getCantidadDeCaracteristicas() 
