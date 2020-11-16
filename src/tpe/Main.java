@@ -82,23 +82,25 @@ public class Main {
 	        FortalecedorX fortalecedora = new FortalecedorX(20);
 	        pociones.add(fortalecedora);
 	        IncrementadorAtributo incrementadora = new IncrementadorAtributo(20, "fuerza");
+	        //IncrementadorAtributo incrementadora = new IncrementadorAtributo(20, "RPM"); //para el mazo autos
 	        pociones.add(incrementadora);
 	        ReductorX reductor = new ReductorX(10);
 	        pociones.add(reductor);
-	        QuieroValeX queiroValer = new QuieroValeX(50);
+	        QuieroValeX queiroValer = new QuieroValeX(287);
 	        pociones.add(queiroValer);
 	        Cocktail cocktail = new Cocktail();
 	        pociones.add(cocktail);
 	        FortalecedorX fortalecedora2 = new FortalecedorX(30);
 	        pociones.add(fortalecedora2);
-	        IncrementadorAtributo incrementadora2 = new IncrementadorAtributo(20, "fuerza");
+	        IncrementadorAtributo incrementadora2 = new IncrementadorAtributo(15, "altura");
+	        //IncrementadorAtributo incrementadora2 = new IncrementadorAtributo(15, "HP");//para el mazo autos
 	        pociones.add(incrementadora2);
-	        /*ReductorX reductor = new ReductorX(10);
-	        pociones.add(reductor);
-	        QuieroValeX queiroValer = new QuieroValeX(50);
-	        pociones.add(queiroValer);
-	        Cocktail cocktail = new Cocktail();
-	        pociones.add(cocktail);*/
+	        ReductorX reductor2 = new ReductorX(5);
+	        pociones.add(reductor2);
+	        QuieroValeX queiroValerx = new QuieroValeX(396);
+	        pociones.add(queiroValerx);
+	        Cocktail cocktail2 = new Cocktail();
+	        pociones.add(cocktail2);
 	        juego1.setPociones(pociones);
 	        ResultadoDelJuego = juego1.play();
 	        
