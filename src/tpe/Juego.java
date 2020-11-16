@@ -65,7 +65,24 @@ public class Juego {
 			Carta cartaGanador = ganadorDeLaUltimaRonda.getCarta();
 			Carta cartaPerdedor = perdedorDeLaUltimaRonda.getCarta();
 			String caracteristicaRandom = ganadorDeLaUltimaRonda.getCaracteristica();
-			resultadoPartida.add("El jugador " + ganadorDeLaUltimaRonda.getNombre() + " selecciona competir por el atributo: " + caracteristicaRandom + " " + "La carta de " + ganadorDeLaUltimaRonda.getNombre() + " es " + cartaGanador.getNombre() + " con " + caracteristicaRandom+ " " + cartaGanador.indexOfValorAtributo(caracteristicaRandom) + " " + "La carta de " + perdedorDeLaUltimaRonda.getNombre() + " es " + cartaPerdedor.getNombre() + " con " + caracteristicaRandom+ " " + cartaPerdedor.indexOfValorAtributo(caracteristicaRandom));
+			if((cartaGanador.getPocion() != null) && (cartaPerdedor.getPocion() != null)){
+				int valorViejoGanador = cartaGanador.indexOfValorAtributo(caracteristicaRandom);
+				cartaGanador.getPocion().EjecutarPocion(cartaGanador);
+				int valorViejoPerdedor = cartaPerdedor.indexOfValorAtributo(caracteristicaRandom);
+				cartaPerdedor.getPocion().EjecutarPocion(cartaPerdedor);
+				resultadoPartida.add("El jugador " + ganadorDeLaUltimaRonda.getNombre() + " selecciona competir por el atributo: " + caracteristicaRandom + " " + "La carta de " + ganadorDeLaUltimaRonda.getNombre() + " es " + cartaGanador.getNombre() + " con " + caracteristicaRandom + " " + valorViejoGanador + " , se aplico la pocima " + cartaGanador.getPocion().getNombre() +  " el valor resultante es "+ cartaGanador.indexOfValorAtributo(caracteristicaRandom) );				
+				resultadoPartida.add("La carta de " + perdedorDeLaUltimaRonda.getNombre() + " es " + cartaPerdedor.getNombre() + " con " + caracteristicaRandom+ " " + + valorViejoPerdedor + " , se aplico la pocima " + cartaPerdedor.getPocion().getNombre() +  " el valor resultante es "+ cartaPerdedor.indexOfValorAtributo(caracteristicaRandom));
+			}else if((cartaGanador.getPocion() == null) && (cartaPerdedor.getPocion() != null)){
+				int valorViejoPerdedor = cartaPerdedor.indexOfValorAtributo(caracteristicaRandom);
+				cartaPerdedor.getPocion().EjecutarPocion(cartaPerdedor);
+				resultadoPartida.add("El jugador " + ganadorDeLaUltimaRonda.getNombre() + " selecciona competir por el atributo: " + caracteristicaRandom + " " + "La carta de " + ganadorDeLaUltimaRonda.getNombre() + " es " + cartaGanador.getNombre() + " con " + caracteristicaRandom+ " " + cartaGanador.indexOfValorAtributo(caracteristicaRandom) + " " + "La carta de " + perdedorDeLaUltimaRonda.getNombre() + " es " + cartaPerdedor.getNombre() + " con " + caracteristicaRandom + " "  + valorViejoPerdedor + " , se aplico la pocima " + cartaPerdedor.getPocion().getNombre() +  " el valor resultante es "+ cartaPerdedor.indexOfValorAtributo(caracteristicaRandom));				
+			}else if((cartaGanador.getPocion() != null) && (cartaPerdedor.getPocion() == null)){
+				int valorViejoGanador = cartaGanador.indexOfValorAtributo(caracteristicaRandom);
+				cartaGanador.getPocion().EjecutarPocion(cartaGanador);
+				resultadoPartida.add("El jugador " + ganadorDeLaUltimaRonda.getNombre() + " selecciona competir por el atributo: " + caracteristicaRandom + " " + "La carta de " + ganadorDeLaUltimaRonda.getNombre() + " es " + cartaGanador.getNombre() + " con " + caracteristicaRandom+ " " + valorViejoGanador + " " + "La carta de " + perdedorDeLaUltimaRonda.getNombre() + " es " + cartaPerdedor.getNombre() + " con " + caracteristicaRandom + " "  + cartaPerdedor.indexOfValorAtributo(caracteristicaRandom));
+			}else{				
+				resultadoPartida.add("El jugador " + ganadorDeLaUltimaRonda.getNombre() + " selecciona competir por el atributo: " + caracteristicaRandom + " " + "La carta de " + ganadorDeLaUltimaRonda.getNombre() + " es " + cartaGanador.getNombre() + " con " + caracteristicaRandom+ " " + cartaGanador.indexOfValorAtributo(caracteristicaRandom) + " " + "La carta de " + perdedorDeLaUltimaRonda.getNombre() + " es " + cartaPerdedor.getNombre() + " con " + caracteristicaRandom + " " + cartaPerdedor.indexOfValorAtributo(caracteristicaRandom));
+			}
 			/*System.out.println("El jugador " + ganadorDeLaUltimaRonda.getNombre() + " selecciona competir por el atributo: " + caracteristicaRandom);
 			System.out.println("La carta de " + ganadorDeLaUltimaRonda.getNombre() + " es " + cartaGanador.getNombre() + " con " + caracteristicaRandom+ " " + cartaGanador.indexOfValorAtributo(caracteristicaRandom));
 			System.out.println("La carta de " + perdedorDeLaUltimaRonda.getNombre() + " es " + cartaPerdedor.getNombre() + " con " + caracteristicaRandom+ " " + cartaPerdedor.indexOfValorAtributo(caracteristicaRandom));*/

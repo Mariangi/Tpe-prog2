@@ -13,7 +13,9 @@ public class IncrementadorAtributo extends Pocion{
 
 	@Override
 	public void EjecutarPocion(Carta carta) {
-		Caracteristica aux = carta.getCaracteristicaX(carta.getCaracteristicas().indexOf(this.atributo));
+		Integer aux1 = new Integer(4);
+		Caracteristica verdaderoBuscado = new Caracteristica(this.atributo, aux1);
+		Caracteristica aux = carta.getCaracteristicaX(carta.getCaracteristicas().indexOf(verdaderoBuscado));
 		aux.setValor(aux.getValor() + this.porcentaje * aux.getValor() / 100);
 
 	}

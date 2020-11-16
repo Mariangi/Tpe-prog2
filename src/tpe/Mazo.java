@@ -18,6 +18,10 @@ public class Mazo {
 		this.cartaModelo = null;
 	}
 	
+	public void setCartaModelo(Carta cartaModelo) {
+		this.cartaModelo = cartaModelo;
+	}
+
 	public Carta getCarta(){
 		Carta aux = this.cartas.get(0);
 		this.cartas.remove(0);
@@ -33,6 +37,7 @@ public class Mazo {
 	}
 	
 	public Carta getCartaModelo(){
+		this.cartaModelo = this.cartas.get(0);
 		return this.cartaModelo;
 	}
 	

@@ -68,14 +68,29 @@ public class Main {
 			//String mazoPath = "autos.json";
 			String mazoPath = "superheroes.json";
 	        Main.CargarMazo(mazoPath);
-	        //Jugador Nico = new Jugador("Nico");
-	        //Jugador Angi = new Jugador("Angi");
+	        Ambicioso Ambicioso = new Ambicioso();
+	        Timbero Timbero = new Timbero();
+	        Jugador Nico = new Jugador("Nico", Ambicioso);
+	        Jugador Angi = new Jugador("Angi", Timbero);
 	        Mazo mazoDeJuego = new Mazo(Main.CargarMazo(mazoPath));
-	        //mazoDeJuego.filtrar();
 	        //mazoDeJuego.imprimirMazo();
-	        //Juego juego1 = new Juego(Nico, Angi, mazoDeJuego, 10);
+	        mazoDeJuego.setCartaModelo(mazoDeJuego.getCartaX(0));
+	        //System.out.println(mazoDeJuego.getCartaX(0).getNombre());
+	        Juego juego1 = new Juego(Nico, Angi, mazoDeJuego, 10);
 	        ArrayList<String> ResultadoDelJuego = new ArrayList<>();
-	        //ResultadoDelJuego = juego1.play();
+	        ArrayList<Pocion> pociones = new ArrayList<>();
+	        FortalecedorX fortalecedora = new FortalecedorX(20);
+	        pociones.add(fortalecedora);
+	        IncrementadorAtributo incrementadora = new IncrementadorAtributo(20, "fuerza");
+	        pociones.add(incrementadora);
+	        ReductorX reductor = new ReductorX(10);
+	        pociones.add(reductor);
+	        QuieroValeX queiroValer = new QuieroValeX(50);
+	        pociones.add(queiroValer);
+	        Cocktail cocktail = new Cocktail();
+	        pociones.add(cocktail);
+	        juego1.setPociones(pociones);
+	        ResultadoDelJuego = juego1.play();
 	        
 	        for(int index = 0; index < ResultadoDelJuego.size(); index++){
 	        	System.out.println("     ");
